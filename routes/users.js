@@ -15,7 +15,7 @@ router.route('/new').post((req, res) => {
 	const type= req.body.type;
  	const newUser = new User({name,username,password,type});
  	 newUser.save()
-    .then(() => res.json('User added!'))
+    .then((user) => res.json(user))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 // add login post route: check if the user is register
