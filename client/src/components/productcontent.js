@@ -17,7 +17,7 @@ class Productcontent extends Component {
 		productcartname:''
 	}
 	buyProduct = e =>{
-		axios.post('https://wde-server.run-us-west2.goorm.io/api/buy/'+this.state.userid+"/"+this.state.id, {productname:this.state.name})
+		axios.post('http://localhost:9000/api/buy/'+this.state.userid+"/"+this.state.id, {productname:this.state.name})
 		 .then(response => {
 			window.location = '/home/'+this.state.userid+"/buy";
 		})
@@ -26,7 +26,7 @@ class Productcontent extends Component {
 		});
 	}
 	cartProduct = e =>{
-		axios.post('https://wde-server.run-us-west2.goorm.io/api/cart/'+this.state.userid+"/"+this.state.id, {productname:this.state.name})
+		axios.post('http://localhost:9000/api/cart/'+this.state.userid+"/"+this.state.id, {productname:this.state.name})
 		 .then(response => {
 			window.location = '/home/'+this.state.userid+"/cart";
 		})
@@ -35,7 +35,7 @@ class Productcontent extends Component {
 		});
 	}
 	deleteProductonCart =() =>{
-    	axios.delete("https://wde-server.run-us-west2.goorm.io/api/order/"+this.state.id)
+    	axios.delete("http://localhost:9000/api/order/"+this.state.id)
         .then(response => { console.log(response.data)})
 		.catch(function (error) {
 		console.log(error);
@@ -43,7 +43,7 @@ class Productcontent extends Component {
 		window.location = '/home/'+this.state.userid;
   }
 	deleteProduct =(id) =>{
-    	axios.delete("https://wde-server.run-us-west2.goorm.io/api/products/"+id)
+    	axios.delete("http://localhost:9000/api/products/"+id)
         .then(response => { console.log(response.data)})
 		.catch(function (error) {
 		console.log(error);
@@ -53,7 +53,7 @@ class Productcontent extends Component {
 	componentDidMount() {
 		const url = window.location.pathname;
 		const res = url.split("/");
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/products/"+res[4])
+		axios.get("http://localhost:9000/api/products/"+res[4])
 		  .then(response => {
 			this.setState({name:response.data.name,
 						   category:response.data.category,
@@ -66,7 +66,7 @@ class Productcontent extends Component {
 			console.log(error);
 		  });
 		
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/users/"+res[2])
+		axios.get("http://localhost:9000/api/users/"+res[2])
 		  .then(response => {
 			this.setState({type:response.data.type,
 						  userid:response.data._id})
@@ -75,14 +75,14 @@ class Productcontent extends Component {
 			console.log(error);
 		  });
 		
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/cart/"+res[2]+"/"+res[4])
+		axios.get("http://localhost:9000/api/cart/"+res[2]+"/"+res[4])
 		  .then(response => {
 			this.setState({productcartname:response.data});
 		  })
 		  .catch(function (error) {
 			console.log(error);
 		  });
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/buy/"+res[2]+"/"+res[4])
+		axios.get("http://localhost:9000/api/buy/"+res[2]+"/"+res[4])
 		  .then(response => {
 			this.setState({productbuyname:response.data});
 		  })

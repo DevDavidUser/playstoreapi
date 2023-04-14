@@ -40,7 +40,7 @@ class EditProductForm extends Component {
 			  image:this.state.image,
 			  author:res[2]
 			}
-			 axios.post('https://wde-server.run-us-west2.goorm.io/api/products/edit/'+res[4],product)
+			 axios.post('http://localhost:9000/api/products/edit/'+res[4],product)
 			.then(product => {
 				return product.data
 				})
@@ -51,7 +51,7 @@ class EditProductForm extends Component {
 		componentDidMount() {
 		const url = window.location.pathname;
 		const res = url.split("/");
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/products/"+res[4])
+		axios.get("http://localhost:9000/api/products/"+res[4])
 		  .then(response => {
 			this.setState({name:response.data.name,
 						   category:response.data.category,

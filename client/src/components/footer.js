@@ -6,6 +6,7 @@ class Footer extends Component {
 		return ( 
 		<div>
 			<h1>Footer</h1>
+			<a href="http://localhost:3000/">Logout</a>
 		</div>
 		)
 	}

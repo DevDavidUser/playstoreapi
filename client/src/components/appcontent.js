@@ -29,7 +29,7 @@ class Appcontent extends Component {
 		})
 	}
 	clientcontent =() =>{
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/products")
+		axios.get("http://localhost:9000/api/products")
 	   .then(response => {
 		this.setState({products:response.data})
 		//console.log(response.data);
@@ -41,7 +41,7 @@ class Appcontent extends Component {
 		devcontent =() =>{
 		const url = window.location.pathname;
 		const res = url.split("/");
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/products/dev/"+res[2])
+		axios.get("http://localhost:9000/api/products/dev/"+res[2])
 	   .then(response => {
 		this.setState({products:response.data})
 		//console.log(response.data);
@@ -53,7 +53,7 @@ class Appcontent extends Component {
 	componentDidMount() {
 		const url = window.location.pathname;
 		const res = url.split("/");
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/users/"+res[2])
+		axios.get("http://localhost:9000/api/users/"+res[2])
 		  .then(response => {
 			this.setState({username:response.data.username,
 						   type:response.data.type,

@@ -40,7 +40,7 @@ class Productform extends Component {
 			  image:this.state.image,
 			  author:res[2]
 			}
-			axios.post('https://wde-server.run-us-west2.goorm.io/api/products/'+res[2],product)
+			axios.post('http://localhost:9000/api/products/'+res[2],product)
 			.then(product => {
 				return product.data
 				})

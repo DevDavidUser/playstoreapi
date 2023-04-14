@@ -17,7 +17,7 @@ class InfoBuy extends Component {
 		productid:''
 	}
 	deleteProductBuy =(id) =>{
-    axios.delete("https://wde-server.run-us-west2.goorm.io/api/buy/"+this.getuserid()+"/"+id)
+    axios.delete("http://localhost:9000/api/buy/"+this.getuserid()+"/"+id)
       .then(response => { console.log(response.data)})
 	  .then(() => {
 		window.location = '/home/'+this.getuserid()+"/buy";
@@ -37,7 +37,7 @@ class InfoBuy extends Component {
 	componentDidMount() {
 		const url = window.location.pathname;
 		const res = url.split("/");
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/buy/"+res[2])
+		axios.get("http://localhost:9000/api/buy/"+res[2])
 		  .then(response => {
 			console.log(response.data);
 			this.setState({buy:response.data,

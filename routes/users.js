@@ -8,16 +8,19 @@ router.route('/').get((req, res) => {
 	  .catch(err => res.status(400).json('Error: ' + err));
 });
 // add route post: add a new user
+// add route post: add a new user
 router.route('/new').post((req, res) => {
+	console.log(req);
 	const name = req.body.name;
 	const username = req.body.username;
 	const password = req.body.password;
-	const type= req.body.type;
- 	const newUser = new User({name,username,password,type});
- 	 newUser.save()
-    .then((user) => res.json(user))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+	const type = req.body.type;
+	const newUser = new User({ name, username, password, type });
+	console.log(newUser);
+	newUser.save()
+	  .then(user => res.json(user))
+	  .catch(err => res.status(400).json('Error: ' + err));
+  });
 // add login post route: check if the user is register
 router.route('/login').post((req, res) => {
 	const username = req.body.username;

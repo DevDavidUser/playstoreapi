@@ -36,7 +36,7 @@ class RegisterForm extends Component {
 			  type:this.state.type,
 			  password:this.state.password
 			}
-			axios.post('https://wde-server.run-us-west2.goorm.io/api/users/new',user)
+			axios.post('http://localhost:9000/api/users/new',user)
 			.then(user => {
 				return user.data
 				})
@@ -65,10 +65,11 @@ class RegisterForm extends Component {
             onChange={this.onChangePassword}
 			/>
 			<label>Choose a user type:</label>
-			<input type="text"
-			value={this.state.type}
-            onChange={this.onChangeType}
-			/>
+			<select id="user-type" name="user-type" value={this.state.type}
+            onChange={this.onChangeType}>
+  				<option value="Developer">Developer</option>
+ 				<option value="Client">Client</option>
+			</select>
 			 <input type="submit" value="Enter"/>
 			</form>
 		</div>

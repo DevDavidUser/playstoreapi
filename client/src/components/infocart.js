@@ -18,7 +18,7 @@ class InfoCart extends Component {
 		productid:''
 	}
 	deleteProductCart =(id) =>{
-    axios.delete("https://wde-server.run-us-west2.goorm.io/api/cart/"+this.getuserid()+"/"+id)
+    axios.delete("http://localhost:9000/api/cart/"+this.getuserid()+"/"+id)
       .then(response => { console.log(response.data)})
 	  .then(() => {
 		window.location = '/home/'+this.getuserid()+"/cart";
@@ -38,7 +38,7 @@ class InfoCart extends Component {
 	componentDidMount() {
 		const url = window.location.pathname;
 		const res = url.split("/");
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/cart/"+res[2])
+		axios.get("http://localhost:9000/api/cart/"+res[2])
 		  .then(response => {
 			console.log(response.data);
 			this.setState({cart:response.data,

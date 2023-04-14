@@ -11,7 +11,7 @@ class Navbar extends Component {
 	componentDidMount() {
 		const url = window.location.pathname;
 		const res = url.split("/");
-		axios.get("https://wde-server.run-us-west2.goorm.io/api/users/"+res[2])
+		axios.get("http://localhost:9000/api/users/"+res[2])
 		  .then(response => {
 			this.setState({username:response.data.username})
 			this.setState({type:response.data.type})
