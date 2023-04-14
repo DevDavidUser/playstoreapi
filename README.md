@@ -19,7 +19,7 @@ Set up your MongoDB database.
 Add the connection URI as an environment variable named MONGODB_URI.
 Start the backend server with the command nodemon.
 Access the client folder and run npm start to start the client.
-Built With
+
 
 # The Playstore app prototype was built using the following technologies:
 
